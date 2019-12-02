@@ -4,7 +4,7 @@ import store from "../store.js";
 // @ts-ignore
 let _sandBox = axios.create({
   //TODO Change YOURNAME to your actual name
-  baseURL: "//bcw-sandbox.herokuapp.com/api/YOURNAME/songs"
+  baseURL: "//bcw-sandbox.herokuapp.com/api/Jim/songs"
 });
 
 class SongsService {
@@ -39,7 +39,9 @@ class SongsService {
       .get()
       .then(res => {
         //TODO What are you going to do with this result
-        let results = res.results.map(rawData => new Song(rawData));
+        let results = res.data.data.map(rawData => new Song(rawData));
+        //NOTE if returing undefined res.data.data.map
+        store.commit("playlist", results);
       })
       .catch(error => {
         throw new Error(error);
@@ -53,7 +55,12 @@ class SongsService {
    */
   addSong(id) {
     //TODO you only have an id, you will need to find it in the store before you can post it
+    let addedSong = store.State.songs.find(song => id == song._id);
     //TODO After posting it what should you do?
+    _sandBox.post("", addedSong).then(res => {
+      this.getMySongs();
+    });
+    console.log(addedSong);
   }
 
   /**
@@ -63,6 +70,9 @@ class SongsService {
    */
   removeSong(id) {
     //TODO Send the id to be deleted from the server then update the store
+    _sandBox.delete(id).then(res => {
+      this.getMySongs();
+    });
   }
 }
 
