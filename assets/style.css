@@ -1,9 +1,38 @@
 .header {
-  background: url(https://images.unsplash.com/photo-1458560871784-56d23406c091?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80);
+  display: flex;
+  background-color: black;
+  background-image: url("https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+  background-position: center;
+  min-height: 400px;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  background-size: unset;
+
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 0 85% 85% / 30%;
+  justify-content: center;
+}
+.header h1 {
+  font-family: "Solway", serif;
+  font-size: 80px;
+  margin-bottom: 30px;
+}
+.main {
+  background-image: url("https://images.unsplash.com/photo-1468164016595-6108e4c60c8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+  min-height: auto;
+  background-size: cover;
+}
+.main h3 {
+  font-size: 50px;
+  border-bottom: solid;
+  border-width: 5px;
+  border-bottom-color: yellow;
+  font-family: "Solway", serif;
+  color: yellow;
 }
 
 .search {
-  justify-content: center;
-  align-items: center;
   max-width: 400px;
 }

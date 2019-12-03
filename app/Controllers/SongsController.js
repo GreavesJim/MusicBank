@@ -27,7 +27,6 @@ export default class SongsController {
     store.subscribe("playlist", _drawPlaylist);
     _drawResults();
     _drawPlaylist();
-    console.log(store.State.playlist);
   }
 
   /**Takes in the form submission event and sends the query to the service */
